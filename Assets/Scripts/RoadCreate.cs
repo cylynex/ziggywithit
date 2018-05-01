@@ -8,15 +8,25 @@ public class RoadCreate : MonoBehaviour {
     public Camera camera;
 
     private Vector3 offset;
+    private bool gameStarted;
 
     Vector3 startPosition = new Vector3(0, 0, 0);
     Vector3 currentPosition = new Vector3(0, 0, 0);
     Vector3 lastPosition = new Vector3(0, 0, 0); 
 
     void Start() {
-        InvokeRepeating("AddRoad", 1f, 0.5f);
+        
         currentPosition = startPosition;
         offset = camera.transform.position - startPosition;
+    }
+
+    void Update() {
+        if (gameStarted == false) {
+            if (Input.GetKeyUp("g")) {
+                InvokeRepeating("AddRoad", 1f, 0.5f);
+                gameStarted = true;
+            }
+        }
     }
 
 
