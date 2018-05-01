@@ -5,10 +5,12 @@ using UnityEngine;
 public class RoadCreate : MonoBehaviour {
 
     public GameObject roadCubePrefab;
-    public Camera camera;
+    public float createRoadSpeed = 0.5f;
+    // Camera moved to player controller
+    // public Camera camera;
+    // private Vector3 offset;
 
-    private Vector3 offset;
-    private bool gameStarted;
+    private bool gameStarted = false;
 
     Vector3 startPosition = new Vector3(0, 0, 0);
     Vector3 currentPosition = new Vector3(0, 0, 0);
@@ -17,13 +19,14 @@ public class RoadCreate : MonoBehaviour {
     void Start() {
         
         currentPosition = startPosition;
-        offset = camera.transform.position - startPosition;
+        // Camera moved to player controller
+        // offset = camera.transform.position - startPosition;
     }
 
     void Update() {
         if (gameStarted == false) {
             if (Input.GetKeyUp("g")) {
-                InvokeRepeating("AddRoad", 1f, 0.5f);
+                InvokeRepeating("AddRoad", 1f, createRoadSpeed);
                 gameStarted = true;
             }
         }
@@ -60,9 +63,10 @@ public class RoadCreate : MonoBehaviour {
             currentPosition = new Vector3(currentPosition.x, currentPosition.y, moveZ);
         }
 
-        // Move the camera
-        GameObject thisCam = camera.gameObject;
+        // Move the camera - moved to player controller
+        /* GameObject thisCam = camera.gameObject;
         thisCam.transform.position = currentRoad.transform.position + offset;
+        */
 
         // Setup the block to be destroyed behind the player
         Destroy(currentRoad, 10f);
