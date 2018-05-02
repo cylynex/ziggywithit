@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,10 +12,15 @@ public class PlayerController : MonoBehaviour {
 
     private RaycastHit hit;
     private Vector3 offset;
-    public bool gameOver;
+    private bool gameOver;
+
+    public static int score;
+    public Text scoreBoard;
 
     void Start() {
         offset = camera.transform.position - transform.position;
+        score = 0;
+        scoreBoard.text = "0";
     }
 
     void Update() {
@@ -62,11 +69,11 @@ public class PlayerController : MonoBehaviour {
     // Check for fall
     void CheckFall() {
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) {
-            Debug.Log("something under me");
+            // All good.
         } else {
-            Debug.Log("FALL");
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             gameOver = true;
+            Invoke("Lose", 3f);
         }
 
         /*
@@ -76,5 +83,21 @@ public class PlayerController : MonoBehaviour {
             print("no collision");
         }
         */
+    }
+
+
+    private void OnTriggerEnter(Collider other) {
+        string collidedWithTag = other.gameObject.tag;
+        if (collidedWithTag == "crystal") {
+            // Score points
+            score += 10;
+            scoreBoard.text = score.ToString();
+            Destroy(other.gameObject);
+        }
+    }
+
+
+    void Lose() {
+        SceneManager.LoadScene("Lose");
     }
 }

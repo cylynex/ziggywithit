@@ -326,9 +326,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CheckForObjects.cs" />
     <Compile Include="Assets\Scripts\InstantiateCubes.cs" />
+    <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RoadCreate.cs" />
     <Compile Include="Assets\Scripts\SavingData.cs" />
+    <Compile Include="Assets\Scripts\DungeonManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

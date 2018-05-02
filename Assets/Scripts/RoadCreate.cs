@@ -6,6 +6,7 @@ public class RoadCreate : MonoBehaviour {
 
     public GameObject roadCubePrefab;
     public float createRoadSpeed = 0.5f;
+
     // Camera moved to player controller
     // public Camera camera;
     // private Vector3 offset;
@@ -73,9 +74,5 @@ public class RoadCreate : MonoBehaviour {
 
     }
 
-    void LateUpdate() {
-        
-
-    }
 
 }
