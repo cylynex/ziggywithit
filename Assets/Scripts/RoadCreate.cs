@@ -41,7 +41,7 @@ public class RoadCreate : MonoBehaviour {
 
         // Decide if there is a crystal here or not.  If so, set it active (since technically its always "there"
         int crystalYN = Random.Range(1, 100);
-        if (crystalYN > 50) {
+        if (crystalYN > 70) {
             // Crystal present, set it active.
             Transform crystal = currentRoad.transform.GetChild(0);
             crystal.gameObject.SetActive(true);
