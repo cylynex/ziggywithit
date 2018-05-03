@@ -68,9 +68,11 @@ public class PlayerController : MonoBehaviour {
 
     // Check for fall
     void CheckFall() {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f)) {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) {
             // All good.
+            Debug.Log("stuff under me");
         } else {
+            Debug.Log("fall");
             gameObject.GetComponent<Renderer>().material.color = Color.red;
             gameOver = true;
             Invoke("Lose", 3f);
