@@ -37,7 +37,7 @@ public class RoadCreate : MonoBehaviour {
     void AddRoad() {
 
         // Create the new block
-        GameObject currentRoad = (GameObject)Instantiate(roadCubePrefab, currentPosition, Quaternion.identity);
+        GameObject currentRoad = (GameObject)Instantiate(roadCubePrefab, currentPosition, Quaternion.Euler(0,45,0));
 
         // Decide if there is a crystal here or not.  If so, set it active (since technically its always "there"
         int crystalYN = Random.Range(1, 100);
@@ -56,12 +56,14 @@ public class RoadCreate : MonoBehaviour {
         // Setup the next position
         if (direction <= 50) {
             // Go X
-            float moveX = currentPosition.x + 1;
-            currentPosition = new Vector3(moveX, currentPosition.y, currentPosition.z);
+            float moveX = currentPosition.x + .704f;
+            float moveZ = currentPosition.z + .704f;
+            currentPosition = new Vector3(moveX, currentPosition.y, moveZ);
         } else {
             // Go Z+
-            float moveZ = currentPosition.z + 1;
-            currentPosition = new Vector3(currentPosition.x, currentPosition.y, moveZ);
+            float moveZ = currentPosition.z + .704f;
+            float moveX = currentPosition.x - .704f;
+            currentPosition = new Vector3(moveX, currentPosition.y, moveZ);
         }
 
         // Move the camera - moved to player controller

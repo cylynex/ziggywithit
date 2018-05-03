@@ -325,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CheckForObjects.cs" />
+    <Compile Include="Assets\Scripts\CrystalTrigger.cs" />
     <Compile Include="Assets\Scripts\DungeonManager.cs" />
     <Compile Include="Assets\Scripts\InstantiateCubes.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />

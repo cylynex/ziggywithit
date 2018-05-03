@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{1380BA6E-FE82-492A-022E-4D473C23641D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControllerKid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/RoadCreate.cs" Line="43" Column="41" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="104" Column="1" />
-      <File FileName="Assets/Scripts/CheckForObjects.cs" Line="16" Column="10" />
-      <File FileName="Assets/Scripts/PlayerControllerKid.cs" Line="104" Column="1" />
+      <File FileName="Assets/Scripts/RoadCreate.cs" Line="16" Column="45" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="89" Column="5" />
+      <File FileName="Assets/Scripts/CrystalTrigger.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
