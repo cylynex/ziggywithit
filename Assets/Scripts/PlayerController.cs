@@ -54,10 +54,10 @@ public class PlayerController : MonoBehaviour {
     void MovePlayer() {
         if (direction == 1) {
             // Z Axis movement
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         } else if (direction == 2) {
             // X Axis movement
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
         // Move the camera along with player

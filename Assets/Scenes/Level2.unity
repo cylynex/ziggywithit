@@ -344,6 +344,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &844387133 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1824340380413090, guid: 0e74cf81e6fd82546b4797f71ceffb81,
+    type: 2}
+  m_PrefabInternal: {fileID: 997908302}
+--- !u!114 &844387134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 844387133}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ca30c36b506c64aafa127f12f968fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moveSpeed: 2
+  m_turnSpeed: 200
+  m_jumpForce: 4
+  m_animator: {fileID: 0}
+  m_rigidBody: {fileID: 0}
+  m_controlMode: 1
+--- !u!114 &844387138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 844387133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a652363ab5847c1b900803db6dafce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  camera: {fileID: 1519847506}
+  scoreBoard: {fileID: 1767194618}
 --- !u!1 &859786866
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +492,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: f297797635a2b7445ad2ea55cec7353b, type: 2}
     - target: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
