@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33461972800734474}
   - component: {fileID: 65872623739411756}
   - component: {fileID: 23563518893225436}
-  - component: {fileID: 54758077574849790}
+  - component: {fileID: 54161392202822168}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 23079277940147352}
   - component: {fileID: 95022040327028490}
   - component: {fileID: 65032643971698748}
-  - component: {fileID: 54924768324632758}
   - component: {fileID: 114401893133489078}
+  - component: {fileID: 54496271100644052}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: crystal
@@ -70,14 +70,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632620176247990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4093654707765862}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!23 &23079277940147352
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -160,7 +160,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971606673847516}
   m_Mesh: {fileID: 4300000, guid: 4d7cc98ae5cab2947a8d9fa3c15e4fa8, type: 3}
---- !u!54 &54758077574849790
+--- !u!54 &54161392202822168
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,23 +169,23 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!54 &54924768324632758
+--- !u!54 &54496271100644052
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971606673847516}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126

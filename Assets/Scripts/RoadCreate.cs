@@ -13,9 +13,9 @@ public class RoadCreate : MonoBehaviour {
 
     private bool gameStarted = false;
 
-    Vector3 startPosition = new Vector3(0, 0, 0);
-    Vector3 currentPosition = new Vector3(0, 0, 0);
-    Vector3 lastPosition = new Vector3(0, 0, 0); 
+    Vector3 startPosition = new Vector3(0, -0.5f, 0);
+    Vector3 currentPosition = new Vector3(0, -0.5f, 0);
+    Vector3 lastPosition = new Vector3(0, -0.5f, 0); 
 
     void Start() {
         
@@ -35,18 +35,7 @@ public class RoadCreate : MonoBehaviour {
 
 
     void AddRoad() {
-
-        // Create the new block
-        GameObject currentRoad = (GameObject)Instantiate(roadCubePrefab, currentPosition, Quaternion.Euler(0,45,0));
-
-        // Decide if there is a crystal here or not.  If so, set it active (since technically its always "there"
-        int crystalYN = Random.Range(1, 100);
-        if (crystalYN > 70) {
-            // Crystal present, set it active.
-            Transform crystal = currentRoad.transform.GetChild(0);
-            crystal.gameObject.SetActive(true);
-        }
-
+        
         // Preserve the prior position for camera movement
         lastPosition = currentPosition;
 
@@ -64,6 +53,17 @@ public class RoadCreate : MonoBehaviour {
             float moveZ = currentPosition.z + .704f;
             float moveX = currentPosition.x - .704f;
             currentPosition = new Vector3(moveX, currentPosition.y, moveZ);
+        }
+
+        // Create the new block
+        GameObject currentRoad = (GameObject)Instantiate(roadCubePrefab, currentPosition, Quaternion.Euler(0, 45, 0));
+
+        // Decide if there is a crystal here or not.  If so, set it active (since technically its always "there"
+        int crystalYN = Random.Range(1, 100);
+        if (crystalYN > 70) {
+            // Crystal present, set it active.
+            Transform crystal = currentRoad.transform.GetChild(0);
+            crystal.gameObject.SetActive(true);
         }
 
         // Move the camera - moved to player controller

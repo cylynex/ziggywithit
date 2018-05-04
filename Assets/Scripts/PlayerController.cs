@@ -17,10 +17,17 @@ public class PlayerController : MonoBehaviour {
     public static int score;
     public Text scoreBoard;
 
+    private Vector3 position;
+    private Vector3 newDir;
+
+    private Animator anim;
+    private bool started = false;
+
     void Start() {
         offset = camera.transform.position - transform.position;
         score = 0;
         scoreBoard.text = "0";
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -34,7 +41,7 @@ public class PlayerController : MonoBehaviour {
             MovePlayer();
 
             // Check if player fell off
-            CheckFall();
+            Invoke("CheckFall",1f);
         }
     }
 
@@ -43,22 +50,37 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
             // Go along z axis
             direction = 2;
+            if (!started) { StartAnimation(); }
         } else if (Input.GetKeyUp(KeyCode.RightShift)) {
             // Go along x axis
             direction = 1;
+            if (!started) { StartAnimation(); }
+        } else if (Input.GetKeyUp("u")) {
+            Debug.Log("face");
+            transform.Rotate(0, 45, 0);
         }
     }
 
 
+    // Fire up the animation when game starts
+    void StartAnimation() {
+        started = true;
+        anim.SetTrigger("gameStart");
+    }
+
     // Move the player along chosen direction
     void MovePlayer() {
+
+        position = transform.position;
+
         if (direction == 1) {
-            // Z Axis movement
+            // Z Axis movement - rshift
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         } else if (direction == 2) {
-            // X Axis movement
+            // X Axis movement - lshift
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
+
 
         // Move the camera along with player
         GameObject thisCam = camera.gameObject;
@@ -68,14 +90,19 @@ public class PlayerController : MonoBehaviour {
 
     // Check for fall
     void CheckFall() {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f)) {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f)) {
             // All good.
             Debug.Log("stuff under me");
         } else {
             Debug.Log("fall");
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
+            // Set animation
+            anim.SetTrigger("isFalling");
+
+            // Just for cube
+            //gameObject.GetComponent<Renderer>().material.color = Color.red;
+
             gameOver = true;
-            Invoke("Lose", 3f);
+            Invoke("Lose", 1f);
         }
 
         /*
