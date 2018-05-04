@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
             CheckInput();
 
             // Move player along chosen direction
-            MovePlayer();
+            if (started) { MovePlayer(); }
 
             // Check if player fell off
             Invoke("CheckFall",1f);
@@ -49,16 +49,31 @@ public class PlayerController : MonoBehaviour {
     void CheckInput() {
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
             // Go along z axis
-            direction = 2;
             if (!started) { StartAnimation(); }
+            if (direction == 1) {
+                transform.Rotate(0, -90, 0);
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            }
+            direction = 2;
         } else if (Input.GetKeyUp(KeyCode.RightShift)) {
             // Go along x axis
-            direction = 1;
             if (!started) { StartAnimation(); }
-        } else if (Input.GetKeyUp("u")) {
-            Debug.Log("face");
-            transform.Rotate(0, 45, 0);
+            if (direction == 2) {
+                transform.Rotate(0, 90, 0);
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            }
+            direction = 1;
+        } 
+
+
+        /*
+         * else if (Input.GetKeyUp("u")) {
+            transform.Rotate(0, -90, 0);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        } else if (Input.GetKeyUp("i")) {
+            transform.Rotate(0, 90, 0);
         }
+        */
     }
 
 
@@ -72,7 +87,9 @@ public class PlayerController : MonoBehaviour {
     void MovePlayer() {
 
         position = transform.position;
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
+        /*
         if (direction == 1) {
             // Z Axis movement - rshift
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -80,6 +97,7 @@ public class PlayerController : MonoBehaviour {
             // X Axis movement - lshift
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
+        */
 
 
         // Move the camera along with player
