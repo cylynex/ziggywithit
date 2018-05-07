@@ -152,5 +152,4 @@ cd0167d7ce4ff561cc6218371f7c3c68 Assembly-CSharp.dll:.CameraLogic
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CrystalTrigger
 3404d188d20d2e21d95fd04503244e70 Assembly-CSharp.dll:.InstantiateCubes
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.LevelLoader
-435e817e351713ac78ceec53c0264b8c Assembly-CSharp.dll:.PlayerControllerKid
 cd050d13e6556becf59f41f50b768e70 Assembly-CSharp.dll:.DungeonManager

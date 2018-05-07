@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
     void CheckInput() {
         if (Input.GetKeyUp(KeyCode.LeftShift)) {
             // Go along z axis
-            if (!started) { StartAnimation(); }
+            if (!started) { StartAnimation(); direction = 1; }
             if (direction == 1) {
                 transform.Rotate(0, -90, 0);
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
             direction = 2;
         } else if (Input.GetKeyUp(KeyCode.RightShift)) {
             // Go along x axis
-            if (!started) { StartAnimation(); }
+            if (!started) { StartAnimation(); direction = 2; }
             if (direction == 2) {
                 transform.Rotate(0, 90, 0);
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -65,15 +65,6 @@ public class PlayerController : MonoBehaviour {
             direction = 1;
         } 
 
-
-        /*
-         * else if (Input.GetKeyUp("u")) {
-            transform.Rotate(0, -90, 0);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        } else if (Input.GetKeyUp("i")) {
-            transform.Rotate(0, 90, 0);
-        }
-        */
     }
 
 
